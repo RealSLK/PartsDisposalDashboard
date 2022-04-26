@@ -14,7 +14,7 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        Axios.post("https://www.waidler.co.za/collectionPortal/api/post/login.php", {
+        Axios.post("https://waidlerdev.com/dashboardBackend/api/post/login.php", {
             userName: userName,
             userPassword: userPassword,
         }).then((response) => {

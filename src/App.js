@@ -18,7 +18,7 @@ function App() {
       if (dealerID === ""){
         alert("Please select a dealership");
       } else {
-      Axios.post("http://localhost/public/pd_dashboard/api/post/findTable.php", {
+      Axios.post("https://www.waidler.co.za/logginPortal/api/post/findTable.php", {
         dealerID: dealerID
         }).then((response) => {
             setPartsData(response.data);
