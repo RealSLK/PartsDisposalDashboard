@@ -18,7 +18,7 @@ function App() {
       if (dealerID === ""){
         alert("Please select a dealership");
       } else {
-      Axios.post("https://waidlerdev.com/dashboardBackend/api/post/findTable.php", {
+      Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/loggingTable.php", {
         dealerID: dealerID
         },{
           headers: {
