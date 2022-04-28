@@ -24,7 +24,9 @@ const Login = () => {
             } else {
                 setSuccess(true);
             }
-        });
+        }).catch((err) => { 
+            console.log(err)
+        });;
     };
 
 

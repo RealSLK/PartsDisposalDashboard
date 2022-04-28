@@ -18,12 +18,14 @@ function App() {
       if (dealerID === ""){
         alert("Please select a dealership");
       } else {
-      Axios.post("https://www.waidler.co.za/logginPortal/api/post/findTable.php", {
+      Axios.post("https://waidlerdev.com/dashboardBackend/api/post/findTable.php", {
         dealerID: dealerID
         }).then((response) => {
             setPartsData(response.data);
             //console.log(response.data);
-        })
+        }).catch(function (err) {
+          console.log(err);
+        });
       }
     };
 
@@ -35,8 +37,7 @@ function App() {
         <div className="dashboard">
         <div  className="filterDealer">
         <h4>Choose dealershp:</h4>
-        <select name="filterDealer" defaultValue="" onChange={(e) => {setDealerID(e.target.value)}} required>  
-            <option value="test">Test DB</option>
+        <select name="filterDealer" defaultValue="" onChange={(e) => {setDealerID(e.target.value)}} required>
             <option value="" selected>Choose dealership</option>
               <option value="N/A">N/A</option>
               <option disabled>**GAUTENG**</option>
