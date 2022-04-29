@@ -20,11 +20,6 @@ function App() {
       } else {
       Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/loggingTable.php", { 
         dealerID: dealerID
-        },{
-          headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          }
         }).then((response) => {
             setPartsData(response.data);
             //console.log(response.data);
