@@ -18,7 +18,7 @@ function App() {
       if (dealerID === ""){
         alert("Please select a dealership");
       } else {
-      Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/loggingTable.php", {
+      Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/loggingTable.php", { 
         dealerID: dealerID
         },{
           headers: {
@@ -43,7 +43,8 @@ function App() {
         <div  className="filterDealer">
         <h4>Choose dealershp:</h4>
         <select name="filterDealer" defaultValue="" onChange={(e) => {setDealerID(e.target.value)}} required>
-            <option value="" selected>Choose dealership</option>
+            <option value="">Choose dealership</option>
+              <option value="test">Test</option>
               <option value="N/A">N/A</option>
               <option disabled>**GAUTENG**</option>
               <option value="91214">91214-Woodmead</option>
@@ -180,7 +181,7 @@ function App() {
         </div>
         <br/>
         <div className="viewBox">
-        <img className="imageCanvas" id="IC1" alt="Part Number" src={`data:image/png;base64,${partNumberImg}`}/>
+        <img className="imageCanvas" id="IC1" alt="Part Number" src={partNumberImg}/>
         <img className="imageCanvas" id="IC2" alt="Overview" src={`data:image/png;base64,${partOverviewImg}`}/>
         <img className="imageCanvas" id="IC3" alt="Warranty Tag" src={`data:image/png;base64,${warrantyTagImg}`}/>
         </div>
