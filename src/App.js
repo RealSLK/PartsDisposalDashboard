@@ -176,9 +176,9 @@ function App() {
         </div>
         <br/>
         <div className="viewBox">
-        <img className="imageCanvas" id="IC1" alt="Part Number" src={partNumberImg}/>
-        <img className="imageCanvas" id="IC2" alt="Overview" src={`data:image/png;base64,${partOverviewImg}`}/>
-        <img className="imageCanvas" id="IC3" alt="Warranty Tag" src={`data:image/png;base64,${warrantyTagImg}`}/>
+        <img className="IC1" alt="Part Number" src={partNumberImg}/>
+        <img className="IC2" alt="Overview" src={`data:image/png;base64,${partOverviewImg}`}/>
+        <img className="IC3" alt="Warranty Tag" src={`data:image/png;base64,${warrantyTagImg}`}/>
         </div>
           <br/><br/>
             <h2>{dealerID} PARTS LIST</h2>
