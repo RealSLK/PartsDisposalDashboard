@@ -213,7 +213,7 @@ function App() {
                     <td>{parts.repairOrder}</td>
                     <td>{parts.partName}</td>
                     <td>
-                    <button value={parts.partNumberImg} onClick={(e) => {e.preventDefault(); setPartNumberImg(e.target.value);}}>View</button>
+                    <button value={parts.partNumberImg} onClick={(e) => {e.preventDefault(); console.log(parts.partNumberImg); setPartNumberImg(e.target.value);}}>View</button>
                     </td>
                     <td>
                     <button value={parts.partOverviewImg} onClick={(e) => {e.preventDefault(); setPartOverviewImg(e.target.value);}}>View</button>
