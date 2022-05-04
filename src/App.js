@@ -216,10 +216,10 @@ function App() {
                     <button value={parts.partNumberImg} onClick={(e) => {e.preventDefault(); console.log(parts.partNumberImg); setPartNumberImg(e.target.value);}}>View</button>
                     </td>
                     <td>
-                    <button value={parts.partOverviewImg} onClick={(e) => {e.preventDefault(); setPartOverviewImg(e.target.value);}}>View</button>
+                    <button value={parts.partOverviewImg} onClick={(e) => {e.preventDefault(); console.log(parts.partOverviewImg); setPartOverviewImg(e.target.value);}}>View</button>
                     </td>
                     <td>
-                    <button value={parts.warrantyTagImg} onClick={(e) => {e.preventDefault(); setWarrantyTagImg(e.target.value);}}>View</button>
+                    <button value={parts.warrantyTagImg} onClick={(e) => {e.preventDefault(); console.log(parts.warrantyTagImg); setWarrantyTagImg(e.target.value);}}>View</button>
                     </td>
                     <td>
                     {parts.partsNote}
