@@ -39,7 +39,6 @@ function App() {
         <h4>Choose dealershp:</h4>
         <select name="filterDealer" defaultValue="" onChange={(e) => {setDealerID(e.target.value)}} required>
             <option value="">Choose dealership</option>
-              <option value="test">Test</option>
               <option value="N/A">N/A</option>
               <option disabled>**GAUTENG**</option>
               <option value="91214">91214-Woodmead</option>
@@ -177,8 +176,8 @@ function App() {
         <br/>
         <div className="viewBox">
         <img className="IC1" alt="Part Number" src={partNumberImg}/>
-        <img className="IC2" alt="Overview" src={`data:image/png;base64,${partOverviewImg}`}/>
-        <img className="IC3" alt="Warranty Tag" src={`data:image/png;base64,${warrantyTagImg}`}/>
+        <img className="IC2" alt="Overview" src={partOverviewImg}/>
+        <img className="IC3" alt="Warranty Tag" src={warrantyTagImg}/>
         </div>
           <br/><br/>
             <h2>{dealerID} PARTS LIST</h2>
