@@ -30,8 +30,11 @@ function App() {
 
     const getImages = (e) =>  {
       e.preventDefault();
-      setID(e.target.value);
-      console.log(id);
+    
+      if (id === ""){
+        setID(e.target.value);
+        console.log(id);
+      }
 
       Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
         id: id
@@ -215,7 +218,7 @@ function App() {
                   <th>Notes</th>
                   </tr>
                 </thead>
-                  <tbody>
+                  <tbody style={{height: "300px"}}>
                   {partsData && partsData.map((parts, i) =>
                   <Fragment>
                   {editPartId === parts.id ? (
@@ -229,7 +232,7 @@ function App() {
                     <td>{parts.repairOrder}</td>
                     <td>{parts.partName}</td>
                     <td>
-                    <button value={parts.id} onClick={(e) => {e.preventDefault(); setID(e.target.value); getImages(e);}}>View</button>
+                    <button value={parts.id} onClick={(e) => {setID(e.target.value); e.preventDefault(); getImages(e);}}>View</button>
                     </td>
                     <td>
                     {parts.partsNote}
