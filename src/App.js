@@ -22,11 +22,25 @@ function App() {
         dealerID: dealerID
         }).then((response) => {
             setPartsData(response.data);
-            //console.log(response.data);
+            console.log(response.data);
         }).catch(function (err) {
           console.log(err);
         });
       }
+    };
+
+    const getImages = (e) =>  {
+      e.preventDefault();
+
+      Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
+        id: id
+        }).then((response) => {
+            //setPartsData(response.data);
+            console.log(response.data);
+        }).catch(function (err) {
+          console.log(err);
+        });
+      
     };
 
   return (
@@ -192,9 +206,7 @@ function App() {
                   <th>Quantity</th>
                   <th>Repair order</th>
                   <th>Part description</th>
-                  <th>Part Number</th>
-                  <th>Overview</th>
-                  <th>Warranty Tag</th>
+                  <th>Images</th>
                   <th>Notes</th>
                   </tr>
                 </thead>
@@ -212,13 +224,7 @@ function App() {
                     <td>{parts.repairOrder}</td>
                     <td>{parts.partName}</td>
                     <td>
-                    <button value={parts.partNumberImg} onClick={(e) => {e.preventDefault(); console.log(parts.partNumberImg); setPartNumberImg(e.target.value);}}>View</button>
-                    </td>
-                    <td>
-                    <button value={parts.partOverviewImg} onClick={(e) => {e.preventDefault(); console.log(parts.partOverviewImg); setPartOverviewImg(e.target.value);}}>View</button>
-                    </td>
-                    <td>
-                    <button value={parts.warrantyTagImg} onClick={(e) => {e.preventDefault(); console.log(parts.warrantyTagImg); setWarrantyTagImg(e.target.value);}}>View</button>
+                    <button value={parts.id} onClick={getImages(parts.id)}>View</button>
                     </td>
                     <td>
                     {parts.partsNote}
