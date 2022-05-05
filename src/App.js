@@ -36,7 +36,7 @@ function App() {
         id: id
         }).then((response) => {
             console.log(response.data);
-            //setImageData(response.data);
+            setImageData(response.data);
         }).catch(function (err) {
           console.log(err);
         });
@@ -189,7 +189,7 @@ function App() {
         </div>
         <br/>
         
-        {imageData && imageData.map((images) => 
+        {imageData.map((images) => 
         <div className="viewBox">
         <img className="IC1" alt="Part Number" src={images.partNumberImg}/>
         <img className="IC2" alt="Overview" src={images.partOverviewImg}/>
