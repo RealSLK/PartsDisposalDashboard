@@ -224,7 +224,7 @@ function App() {
                     <td>{parts.repairOrder}</td>
                     <td>{parts.partName}</td>
                     <td>
-                    <button value={parts.id} onClick={(e) => {setID(e.target.value); getImages();}}>View</button>
+                    <button value={parts.id} onClick={(e) => {e.preventDefault(); setID(e.target.value); getImages();}}>View</button>
                     </td>
                     <td>
                     {parts.partsNote}
