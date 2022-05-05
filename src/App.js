@@ -31,9 +31,7 @@ function App() {
     const getImages = (e) =>  {
       e.preventDefault();
     
-      if (id === ""){
-        setID(e.target.value);
-      } else if (id !== ""){
+      if (id !== ""){
         Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
         id: id
         }).then((response) => {
