@@ -9,6 +9,7 @@ function App() {
   const [partOverviewImg, setPartOverviewImg] = useState("");
   const [warrantyTagImg, setWarrantyTagImg] = useState("");
 
+  const [id, setID] = useState("");
   const [dealerID, setDealerID] = useState("");
   const [partsData, setPartsData] = useState([]);
 
