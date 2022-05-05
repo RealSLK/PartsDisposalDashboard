@@ -28,20 +28,19 @@ function App() {
       }
     };
 
-    const getImages = (e) =>  {
-      e.preventDefault();
-    
-      if (id !== ""){
+    const getImages = () =>  {
+      
         Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
         id: id
         }).then((response) => {
-            console.log(id);
             setImageData(response.data);
         }).catch(function (err) {
           console.log(err);
         });
-      }
+      
     };
+
+    //console.log(id);
 
   return (
     <div className="App">
@@ -228,7 +227,7 @@ function App() {
                     <td>{parts.repairOrder}</td>
                     <td>{parts.partName}</td>
                     <td>
-                    <button value={parts.id} onLoad={(e) => {e.preventDefault(); setID(e.target.value)}} onClick={getImages}>View</button>
+                    <button value={parts.id} onClick={(e) => {e.preventDefault(); setID(parts.id); getImages() }}>View</button>
                     </td>
                     <td>
                     {parts.partsNote}
