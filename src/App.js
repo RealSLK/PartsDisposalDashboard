@@ -34,17 +34,16 @@ function App() {
       if (id === ""){
         setID(e.target.value);
         console.log(id);
-      }
-
-      Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
+      } else if (id !== ""){
+        Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
         id: id
         }).then((response) => {
             console.log(response.data);
-            //setImageData(response.data);
+            setImageData(response.data);
         }).catch(function (err) {
           console.log(err);
         });
-      
+      }
     };
 
   return (
@@ -232,7 +231,7 @@ function App() {
                     <td>{parts.repairOrder}</td>
                     <td>{parts.partName}</td>
                     <td>
-                    <button value={parts.id} onClick={(e) => {setID(e.target.value); e.preventDefault(); getImages(e);}}>View</button>
+                    <button value={parts.id} onLoad={console.log(parts.id)} onClick={(e) => {console.log(parts.id); setID(e.target.value); e.preventDefault(); getImages(e);}}>View</button>
                     </td>
                     <td>
                     {parts.partsNote}
