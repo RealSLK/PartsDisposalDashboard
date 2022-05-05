@@ -5,9 +5,7 @@ import Axios from 'axios';
 function App() {
   const [editPartId, setEditPartId] = useState("");
 
-  const [partNumberImg, setPartNumberImg] = useState("");
-  const [partOverviewImg, setPartOverviewImg] = useState("");
-  const [warrantyTagImg, setWarrantyTagImg] = useState("");
+  const [imageData, setImageData] = useState([]);
 
   const [id, setID] = useState("");
   const [dealerID, setDealerID] = useState("");
@@ -23,7 +21,7 @@ function App() {
         dealerID: dealerID
         }).then((response) => {
             setPartsData(response.data);
-            console.log(response.data.id);
+            //console.log(response.data);
         }).catch(function (err) {
           console.log(err);
         });
@@ -32,11 +30,13 @@ function App() {
 
     const getImages = (e) =>  {
       e.preventDefault();
+      setID(e.target.value);
 
       Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
         id: id
         }).then((response) => {
             console.log(response.data);
+            //setImageData(response.data);
         }).catch(function (err) {
           console.log(err);
         });
@@ -188,11 +188,15 @@ function App() {
           <button onClick={filterDealer}>Enter</button>
         </div>
         <br/>
+        
+        {imageData && imageData.map((images) => 
         <div className="viewBox">
-        <img className="IC1" alt="Part Number" src={partNumberImg}/>
-        <img className="IC2" alt="Overview" src={partOverviewImg}/>
-        <img className="IC3" alt="Warranty Tag" src={warrantyTagImg}/>
+        <img className="IC1" alt="Part Number" src={images.partNumberImg}/>
+        <img className="IC2" alt="Overview" src={images.partOverviewImg}/>
+        <img className="IC3" alt="Warranty Tag" src={images.warrantyTagImg}/>
         </div>
+        )
+        }
           <br/><br/>
             <h2>{dealerID} PARTS LIST</h2>
             <div className="partsList">
