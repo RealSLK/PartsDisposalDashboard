@@ -23,7 +23,7 @@ function App() {
         dealerID: dealerID
         }).then((response) => {
             setPartsData(response.data);
-            console.log(response.data);
+            console.log(response.data.id);
         }).catch(function (err) {
           console.log(err);
         });
