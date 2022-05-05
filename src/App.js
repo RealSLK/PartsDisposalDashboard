@@ -31,12 +31,13 @@ function App() {
     const getImages = (e) =>  {
       e.preventDefault();
       setID(e.target.value);
+      console.log(id);
 
       Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
         id: id
         }).then((response) => {
             console.log(response.data);
-            setImageData(response.data);
+            //setImageData(response.data);
         }).catch(function (err) {
           console.log(err);
         });
@@ -189,7 +190,7 @@ function App() {
         </div>
         <br/>
         
-        {imageData.map((images) => 
+        {imageData && imageData.map((images) => 
         <div className="viewBox">
         <img className="IC1" alt="Part Number" src={images.partNumberImg}/>
         <img className="IC2" alt="Overview" src={images.partOverviewImg}/>
@@ -214,7 +215,7 @@ function App() {
                   <th>Notes</th>
                   </tr>
                 </thead>
-                  <tbody style={{height: "300px"}}>
+                  <tbody>
                   {partsData && partsData.map((parts, i) =>
                   <Fragment>
                   {editPartId === parts.id ? (
