@@ -187,8 +187,8 @@ function App() {
                 <thead>
                 <tr>
                   <th>Dealer code</th>
-                  <th>Part number</th>
                   <th>Vin number</th>
+                  <th>Part number</th>
                   <th>Quantity</th>
                   <th>Repair order</th>
                   <th>Part description</th>
