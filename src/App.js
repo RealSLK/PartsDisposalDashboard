@@ -36,7 +36,6 @@ function App() {
       Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/getImages.php", { 
         id: id
         }).then((response) => {
-            //setPartsData(response.data);
             console.log(response.data);
         }).catch(function (err) {
           console.log(err);
@@ -225,7 +224,7 @@ function App() {
                     <td>{parts.repairOrder}</td>
                     <td>{parts.partName}</td>
                     <td>
-                    <button value={parts.id} onClick={getImages(parts.id)}>View</button>
+                    <button value={parts.id} onClick={(e) => {setID(e.target.value); getImages();}}>View</button>
                     </td>
                     <td>
                     {parts.partsNote}
