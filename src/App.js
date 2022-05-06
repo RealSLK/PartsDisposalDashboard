@@ -6,6 +6,8 @@ function App() {
   const [editPartId, setEditPartId] = useState("");
 
   const [imageData, setImageData] = useState([]);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [imgLoader, setImgLoader] = useState(false);
 
   const [id, setID] = useState("");
   const [dealerID, setDealerID] = useState("");
@@ -20,8 +22,14 @@ function App() {
       Axios.post("https://waidlerdev.com/partsDisposalBackend/api/post/loggingTable.php", { 
         dealerID: dealerID
         }).then((response) => {
+          if (typeof(response.data) == 'string'){
+            setErrorMsg(response.data);
+            setPartsData([]);
+            setImageData([]);
+          } else {
             setPartsData(response.data);
-            //console.log(response.data);
+            setErrorMsg("");
+          }
         }).catch(function (err) {
           console.log(err);
         });
@@ -37,6 +45,7 @@ function App() {
         id: id
         }).then((response) => {
             setImageData(response.data);
+            setImgLoader(false);
         }).catch(function (err) {
           console.log(err);
         });
@@ -188,6 +197,15 @@ function App() {
           <button onClick={filterDealer}>Enter</button>
         </div>
         <br/>
+
+        <div className="noticeBoard">
+        {imgLoader && 
+        <center>
+          <div class="lds-roller">
+          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+          </div>
+        </center>
+        }
         
         {imageData && imageData.map((images, i) => 
             <div className="viewBox" key={i}>
@@ -196,6 +214,13 @@ function App() {
             <img className="IC3" alt="Warranty Tag" src={images.warrantyTagImg}/>
             </div>
         )}
+        </div>
+
+        {errorMsg && 
+        <div className="errorMsg">
+          <h4>{errorMsg}</h4>
+        </div>
+        }
         
           <br/><br/>
             <h2>{dealerID} PARTS LIST</h2>
@@ -228,7 +253,7 @@ function App() {
                     <td>{parts.repairOrder}</td>
                     <td>{parts.partName}</td>
                     <td>
-                    <button type="submit" value={parts.id} onDoubleClick={getImages} onClick={(e) => {e.preventDefault(); {setID(e.target.value)}}}>View</button>
+                    <button type="submit" value={parts.id} onDoubleClick={(e) => {setImgLoader(true); getImages(e);}} onClick={(e) => {e.preventDefault(); {setID(e.target.value)}}}>View</button>
                     </td>
                     <td>
                     {parts.partsNote}
