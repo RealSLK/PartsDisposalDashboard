@@ -11,6 +11,19 @@ const Login = () => {
     const [success, setSuccess] = useState(false);
     const [loginStatus, setLoginStatus] = useState('');
 
+    /*const [token, setToken] = useState(getToken());
+      
+      const getToken = () => {
+        const tokenString = localStorage.getItem('token');
+        const userToken = JSON.parse(tokenString);
+        return userToken?.token
+      };
+    
+      const saveToken = userToken => {
+        localStorage.setItem('token', JSON.stringify(userToken));
+        setToken(userToken.token);
+      };*/
+
     useEffect(() => {
         if(!token){
             setSuccess(true);
