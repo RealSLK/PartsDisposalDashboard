@@ -13,7 +13,7 @@ const Login = () => {
 
     useEffect(() => {
         if(!token){
-            setSuccess(false);
+            setSuccess(true);
         }
       }, []);
 
@@ -24,13 +24,12 @@ const Login = () => {
             userName: userName,
             userPassword: userPassword,
         }).then((response) => {
-            console.log(response.data);
             if (response.data === "Incorrect") {
                 setLoginStatus("User authentication failed. \n Please try again.")
             } else {
                 setSuccess(true);
                 setToken(response.data);
-                console.log(response.data);
+                //console.log(response.data);
             }
         }).catch((err) => { 
             console.log(err)
