@@ -26,6 +26,8 @@ const Login = () => {
 
     useEffect(() => {
         if(!token){
+            setSuccess(false);
+        } else {
             setSuccess(true);
         }
       }, []);
