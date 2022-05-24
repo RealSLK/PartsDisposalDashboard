@@ -11,21 +11,8 @@ const Login = () => {
     const [success, setSuccess] = useState(false);
     const [loginStatus, setLoginStatus] = useState('');
 
-    /*const [token, setToken] = useState(getToken());
-      
-      const getToken = () => {
-        const tokenString = localStorage.getItem('token');
-        const userToken = JSON.parse(tokenString);
-        return userToken?.token
-      };
-    
-      const saveToken = userToken => {
-        localStorage.setItem('token', JSON.stringify(userToken));
-        setToken(userToken.token);
-      };*/
-
     useEffect(() => {
-        if(!token){
+        if(!localStorage.getItem('token')){
             setSuccess(false);
         } else {
             setSuccess(true);
@@ -43,8 +30,8 @@ const Login = () => {
                 setLoginStatus("User authentication failed. \n Please try again.")
             } else {
                 setSuccess(true);
-                setToken(response.data);
-                //console.log(response.data);
+                console.log(response.data);
+                localStorage.setItem('token', JSON.stringify(response.data));
             }
         }).catch((err) => { 
             console.log(err)
@@ -63,7 +50,7 @@ const Login = () => {
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <label>Username:</label>
-                <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} required/>
+                <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} required autoComplete="username"/>
                 <label>Password:</label>
                 <input type="password" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} required autoComplete="current-password"/>
                     <div>
