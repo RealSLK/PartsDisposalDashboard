@@ -204,7 +204,7 @@ function App() {
         <div  className="filterDealer">
         <h4>Choose dealershp:</h4>
         <Select
-              name="filterDealer"
+              name="selectTag"
               defaultValue=""
               placeholder="Choose dealership..."
               isSearchable={true}
