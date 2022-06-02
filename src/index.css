@@ -153,6 +153,14 @@
   }
 }
 
+.selectTag {
+  width: 20%;
+  text-align: center;
+  padding: 6px 10px;
+  margin: 10px 0;
+  display: inline-block;
+}
+
 /*Login Form*/
 
 .loginForm {
