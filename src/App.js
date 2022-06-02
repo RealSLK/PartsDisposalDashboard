@@ -204,7 +204,7 @@ function App() {
         <div  className="filterDealer">
         <h4>Choose dealershp:</h4>
         <Select
-              name="selectTag"
+              className="selectTag"
               defaultValue=""
               placeholder="Choose dealership..."
               isSearchable={true}
@@ -264,16 +264,16 @@ function App() {
                     null
                     ) : (
                     <tr key={i}>
-                    <td>{parts.dealerCode}</td>
-                    <td>{parts.vinNumber}</td>
-                    <td>{parts.partNumber}</td>
-                    <td>{parts.partsQuantity}</td>
-                    <td>{parts.repairOrder}</td>
-                    <td>{parts.partName}</td>
-                    <td>
+                    <td data-label="Dealer Code">{parts.dealerCode}</td>
+                    <td data-label="VIN Number">{parts.vinNumber}</td>
+                    <td data-label="Part Number">{parts.partNumber}</td>
+                    <td data-label="Parts Quantity">{parts.partsQuantity}</td>
+                    <td data-label="Repair Order">{parts.repairOrder}</td>
+                    <td data-label="Part Name">{parts.partName}</td>
+                    <td data-label="View Images">
                     <button type="submit" value={parts.id} onDoubleClick={(e) => {setImgLoader(true); getImages(e);}} onClick={(e) => {e.preventDefault(); {setID(e.target.value)}}}>View</button>
                     </td>
-                    <td>
+                    <td data-label="Parts Note">
                     {parts.partsNote}
                     </td>
                     </tr>
