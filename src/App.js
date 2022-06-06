@@ -94,6 +94,7 @@ function App() {
     { value: '90205', label: '90205-William Moffett' },
     { value: '90203', label: '90203-Port Elizabeth' },
     { value: '90206', label: '90206-Uitenhage' },
+    { value: '90204', label: '90204-Eastern Cape Motors' },
     { value: '90429', label: '90429-Port Alfre' },
     { value: '98099', label: '98099-Karoo Ford Kleinpoort' },
     { value: '90226', label: '90226-King Williams Town' },
