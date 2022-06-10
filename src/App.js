@@ -32,6 +32,7 @@ function App() {
     { value: '91203', label: '91203-Bruma Ford' },
     { value: '91216', label: '91216-William Nicole' },
     { value: '90554', label: '90554-Boksburg' },
+    { value: '90036', label: '90036-Casseys Auto Benoni' },
     { value: '91130', label: '91130-Vereeniging' },
     { value: '90022', label: '90022-Hatfield' },
     { value: '91193', label: '91193-MMG Ford Heidelberg' },
