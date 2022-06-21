@@ -160,7 +160,6 @@
 }
 
 /*Login Form*/
-
 .loginForm {
   width: 400px;
   position: absolute;
@@ -298,4 +297,34 @@
   text-align: center;
   font-weight: bold;
   color: black;
+}
+
+/*Scroll to top button*/
+@media only screen and (max-width: 760px) {
+.top-to-btm{
+  position: relative;
+}
+.icon-position{
+  position: fixed;
+  bottom: 40px;
+  right: 25px;
+  z-index: 20;
+}
+.icon-style{
+  background-color: rgb(204, 204, 204);
+  border: 2px solid #8f1028;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  animation: movebtn 3s ease-in-out infinite;
+  transition: all .5s ease-in-out;
+}
+.icon-style:hover{
+  animation: none;
+  background: #fff;
+  color: #551B54;
+  border: 2px solid #551B54;
+}
 }

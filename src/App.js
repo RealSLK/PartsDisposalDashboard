@@ -1,7 +1,8 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import Navbar from './Navbar';
 import Axios from 'axios';
 import Select from 'react-select';
+import { FaAngleUp } from 'react-icons/fa';
 
 function App() {
   const [editPartId, setEditPartId] = useState("");
@@ -10,6 +11,7 @@ function App() {
   const [errorMsg, setErrorMsg] = useState("");
   const [imgLoader, setImgLoader] = useState(false);
 
+  const [showTopBtn, setShowTopBtn] = useState(false);
   const [partSearch, setPartSearch] = useState("");
 
   const [id, setID] = useState("");
@@ -161,6 +163,23 @@ function App() {
   ]},
 ];
 
+  useEffect(() => {
+      window.addEventListener("scroll", () => {
+          if (window.scrollY > 400) {
+              setShowTopBtn(true);
+          } else {
+              setShowTopBtn(false);
+          }
+      });
+  }, []);
+
+  const goToTop = () => {
+      window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+      });
+  };
+
   const filterDealer = (e) =>  {
       e.preventDefault();
 
@@ -203,6 +222,15 @@ function App() {
   return (
     <div className="App">
         <Navbar />
+
+        {showTopBtn && (
+        <div className="top-to-btm">
+            <FaAngleUp className="icon-position icon-style" 
+              onClick={goToTop}
+            />
+        </div>
+        )}
+
       <div className="content">
         <h1>Parts Disposal Dashboard</h1>
         <div className="dashboard">
@@ -283,7 +311,7 @@ function App() {
                     <td data-label="Repair Order">{parts.repairOrder}</td>
                     <td data-label="Part Name">{parts.partName}</td>
                     <td data-label="View Images">
-                    <button type="submit" value={parts.id} onDoubleClick={(e) => {setImgLoader(true); getImages(e);}} onClick={(e) => {e.preventDefault(); {setID(e.target.value)}}}>View</button>
+                    <button type="submit" value={parts.id} onDoubleClick={(e) => {setImgLoader(true); getImages(e); goToTop();}} onClick={(e) => {e.preventDefault(); {setID(e.target.value)}}}>View</button>
                     </td>
                     <td data-label="Parts Note">
                     {parts.partsNote}
