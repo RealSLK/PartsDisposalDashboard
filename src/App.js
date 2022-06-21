@@ -10,6 +10,8 @@ function App() {
   const [errorMsg, setErrorMsg] = useState("");
   const [imgLoader, setImgLoader] = useState(false);
 
+  const [partSearch, setPartSearch] = useState("");
+
   const [id, setID] = useState("");
   const [dealerID, setDealerID] = useState("");
   const [partsData, setPartsData] = useState([]);
@@ -244,7 +246,8 @@ function App() {
         }
         
           <br/><br/>
-            <h2>{dealerID} PARTS LIST</h2>
+            <h2 style={{display: "inline"}}>{dealerID} PARTS LIST</h2>
+            <input type="text" className="searchBox" placeholder="Part name..."  onChange={(e) => {setPartSearch(e.target.value)}}/>
             <div className="partsList">
               <form>
                 <table className="table table-striped">
@@ -261,7 +264,13 @@ function App() {
                   </tr>
                 </thead>
                   <tbody style={{height: "300px"}}>
-                  {partsData && partsData.map((parts, i) =>
+                  {partsData && partsData.filter((parts) => {
+                    if (partSearch === "") {
+                      return parts
+                    } else if (parts.partName.toLowerCase().includes(partSearch.toLowerCase())) {
+                      return parts
+                    }
+                  }).map((parts, i) =>
                   <Fragment>
                   {editPartId === parts.id ? (
                     null

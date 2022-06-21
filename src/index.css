@@ -80,6 +80,12 @@
   background-image: url('https://i.imgur.com/GnyDvKN.png');
 }
 
+.searchBox {
+  display: inline;
+  float: right;
+  width: 30%;
+  height: 20px;
+}
 
 /*Table*/
 .table {
